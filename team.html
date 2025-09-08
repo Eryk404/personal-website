@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: #f4f4f4;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+        }
+
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #67b0ff;
+            color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .sidebar button:hover {
+            background-color: #0056b3;
+        }
+
+        .content {
+            margin-left: 320px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .team-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member p {
+            margin: 10px 0 0;
+            font-size: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='team.html'">Team</button>
+        <button onclick="window.location.href='gruppekontrakt.html'">Gruppekontrakt</button>
+        <button onclick="window.location.href='personas.html'">Personas</button>
+        <button onclick="window.location.href='iw.html'">IA og wireframes</button>
+        <button onclick="window.location.href='bbd.html'">Brukertesting og brukervennlig design</button>
+        <button onclick="window.location.href='universellutforming.html'">Universell utforming</button>
+        <button onclick="window.location.href='brukerhistorier.html'">Brukerhistorier</button>
+        <button onclick="window.location.href='systemutviklingmetoder.html'">Systemutviklingmetoder</button>
+        <button onclick="window.location.href='agilemetoder.html'">Agile Metoder</button>
+    </div>
+    </div>
+    <div class="content">
+        <h1>Our Team</h1>
+        <div class="team-container">
+            <div class="team-member">
+                <a href="member1.html"><img src="teampictures/teammember1.png" alt="Team Member 1"></a>
+                <p>Eryk</p>
+            </div>
+            <div class="team-member">
+                <a href="member2.html"><img src="teampictures/teammember2.png" alt="Team Member 2"></a>
+                <p>Franc</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
