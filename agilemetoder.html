@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agile Systemutviklingsmetoder</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: #f4f4f4;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+        }
+
+        .sidebar button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #67b0ff;
+            color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .sidebar button:hover {
+            background-color: #0056b3;
+        }
+
+        .content {
+            margin-left: 320px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='team.html'">Team</button>
+        <button onclick="window.location.href='gruppekontrakt.html'">Gruppekontrakt</button>
+        <button onclick="window.location.href='personas.html'">Personas</button>
+        <button onclick="window.location.href='iw.html'">IA og wireframes</button>
+        <button onclick="window.location.href='bbd.html'">Brukertesting og brukervennlig design</button>
+        <button onclick="window.location.href='universellutforming.html'">Universell utforming</button>
+        <button onclick="window.location.href='brukerhistorier.html'">Brukerhistorier</button>
+        <button onclick="window.location.href='systemutviklingmetoder.html'">Systemutviklingmetoder</button>
+        <button onclick="window.location.href='agilemetoder.html'">Agile Metoder</button>
+    </div>
+    <div class="content">
+        <h1>Agile Systemutviklingsmetoder</h1>
+
+        <h2>Hva menes med agile systemutviklingsmetoder?</h2>
+        <p>Agile systemutviklingsmetoder er en tilnærming til utvikling av programvare som vektlegger fleksibilitet, samarbeid og iterative prosesser. I stedet for å følge en lineær og rigid plan, som i tradisjonelle metoder som fossefallmodellen, deles utviklingsprosessen opp i mindre, håndterbare iterasjoner eller sprinter. Hver iterasjon resulterer i en fungerende del av systemet, som testes og evalueres kontinuerlig. Kjente agile rammeverk inkluderer Scrum, Kanban og Extreme Programming (XP). Sentralt i agile metoder er verdier som kundesamarbeid, tilpasning til endringer, hyppig levering av funksjonalitet og tett samarbeid i tverrfaglige team.</p>
+    </div>
+</body>
+</html>
+
