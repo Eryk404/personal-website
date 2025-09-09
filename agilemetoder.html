@@ -3,62 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agile Systemutviklingsmetoder</title>
+    <title>Home</title>
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             display: flex;
+            background: linear-gradient(135deg, #F5F7FA 0%, #E0E7FF 100%);
+            color: #2D3748;
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+            color: #E5E7EB;
         }
 
         .sidebar {
             width: 300px;
-            background-color: #f4f4f4;
+            background-color: #FFFFFF;
             height: 100vh;
-            padding: 20px;
+            padding: 24px;
             box-sizing: border-box;
             position: fixed;
+            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+            transition: transform 1s ease-in-out;
+            z-index: 1000;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-95%);
+        }
+
+        .sidebar.dark-mode {
+            background-color: #1F2937;
+            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar-header {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            background-color: inherit;
+            padding: 10px 0;
+            z-index: 10;
+        }
+
+        .sidebar.dark-mode .sidebar-header {
+            color: #E5E7EB;
         }
 
         .sidebar button {
             display: block;
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            background-color: #67b0ff;
-            color: white;
-            border: 2px solid black;
-            border-radius: 10px;
+            padding: 12px 16px;
+            margin: 8px 0;
+            background: linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
             text-align: left;
-            font-size: 16px;
+            font-size: 21px;
+            font-weight: 1000;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .sidebar button:hover {
-            background-color: #0056b3;
+            background: linear-gradient(90deg, #2563EB 0%, #3B82F6 100%);
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .sidebar button:active {
+            transform: scale(0.98);
+        }
+
+        .sidebar.dark-mode button {
+            background: linear-gradient(90deg, #4B5563 0%, #6B7280 100%);
+        }
+
+        .sidebar.dark-mode button:hover {
+            background: linear-gradient(90deg, #6B7280 0%, #9CA3AF 100%);
+        }
+
+        .toggle-sidebar-btn {
+            position: absolute;
+            top: 20px;
+            right: -40px;
+            background-color: #3B82F6;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 1s ease, transform 1s ease;
+        }
+
+        .toggle-sidebar-btn:hover {
+            background-color: #2563EB;
+            transform: translateX(2px);
+        }
+
+        .dark-mode-toggle {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #6B7280;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #4B5563;
         }
 
         .content {
-            margin-left: 320px;
-            padding: 20px;
+            margin-left: 300px;
+            padding: 40px;
             flex-grow: 1;
+            min-height: 100vh;
+            animation: slideIn 0.5s ease-in-out;
+            transition: margin-left 1s ease-in-out;
         }
 
-        @media (max-width: 600px) {
+        .content.hidden-sidebar {
+            margin-left: 0;
+        }
+
+        .content h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #1F2937;
+            letter-spacing: -0.025em;
+        }
+
+        .content.dark-mode h1 {
+            color: #E5E7EB;
+        }
+
+        .content p {
+            font-size: 1.5rem;
+            color: #4B5563;
+            max-width: 1500px;
+            margin-bottom: 1.5rem;
+        }
+
+        .content.dark-mode p {
+            color: #D1D5DB;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @media (max-width: 768px) {
             .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
+                width: 260px;
             }
 
             .content {
-                margin-left: 0;
+                padding: 24px;
+            }
+
+            .sidebar button {
+                font-size: 14px;
+                padding: 10px 14px;
             }
         }
+
+        @media (max-width: 480px) {
+            .content h1 {
+                font-size: 2rem;
+            }
+
+            .content p {
+                font-size: 1.1rem;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .toggle-sidebar-btn {
+                right: -36px;
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom font import */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
     </style>
 </head>
 <body>
     <div class="sidebar">
+        <button class="toggle-sidebar-btn" onclick="toggleSidebar()">☰</button>
+        <div class="sidebar-header">Navigation</div>
         <button onclick="window.location.href='index.html'">Home</button>
         <button onclick="window.location.href='team.html'">Team</button>
         <button onclick="window.location.href='gruppekontrakt.html'">Gruppekontrakt</button>
@@ -67,9 +229,11 @@
         <button onclick="window.location.href='bbd.html'">Brukertesting og brukervennlig design</button>
         <button onclick="window.location.href='universellutforming.html'">Universell utforming</button>
         <button onclick="window.location.href='brukerhistorier.html'">Brukerhistorier</button>
-        <button onclick="window.location.href='systemutviklingmetoder.html'">Systemutviklingmetoder</button>
+        <button onclick="window.location.href='systemutviklingmetoder.html'">Systemutvikling-metoder</button>
         <button onclick="window.location.href='agilemetoder.html'">Agile Metoder</button>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">White/Dark Mode</button>
     </div>
+    
     <div class="content">
         <h1>Agile Systemutviklingsmetoder</h1>
 
@@ -79,15 +243,59 @@
         <h2>Hvorfor bruker vi agile systemutviklingsmetoder?</h2>
         <p>Agile metoder brukes fordi de møter behovet for rask tilpasning i komplekse og dynamiske prosjekter. I en verden der krav og teknologier endres raskt, gir agile metoder mulighet til å justere kursen underveis basert på tilbakemeldinger fra kunder og brukere. Dette reduserer risikoen for å utvikle noe som ikke møter behovene. Videre fremmer agile metoder tett samarbeid mellom utviklere, kunder og andre interessenter, noe som øker kvaliteten og relevansen av sluttproduktet. Hyppige leveranser sikrer at verdifulle funksjoner blir tilgjengelige tidlig, og iterative prosesser muliggjør kontinuerlig forbedring. Styrker og svakheter ved agile metoder</p>
         
-        <h3>Styrker:</h3>
-        <ol>Fleksibilitet: Agile metoder tilpasser seg endringer i krav, noe som er ideelt for prosjekter med usikkerhet.Kundesentrert: Hyppige tilbakemeldinger fra kunder sikrer at produktet møter deres behov.Rask levering: Fungerende programvare leveres tidlig og ofte, noe som gir rask verdi. Samarbeid: Tverrfaglige team og tett kommunikasjon øker effektivitet og innovasjon. Kontinuerlig forbedring: Iterasjoner gir rom for å lære av feil og forbedre prosessen.</ol>
+        <h3 style="color:green; ">Styrker:</h3>
+        <ol><strong>Fleksibilitet: </strong> Agile metoder tilpasser seg endringer i krav, noe som er ideelt for prosjekter med usikkerhet.</ol>
+        <ol><strong>Kundesentrert: </strong> Hyppige tilbakemeldinger fra kunder sikrer at produktet møter deres behov.</ol>
+        <ol><strong>Rask levering: </strong> Fungerende programvare leveres tidlig og ofte, noe som gir rask verdi. </ol>
+        <ol><strong>Samarbeid: </strong>Tverrfaglige team og tett kommunikasjon øker effektivitet og innovasjon.</ol>
+        <ol><strong>Kontinuerlig forbedring: </strong>Iterasjoner gir rom for å lære av feil og forbedre prosessen.</ol>
+        
 
 
+        <h3 style="color:red; ">Svakheter:</h3>
+        <ol><strong>Mangel på struktur: </strong> Den fleksible naturen kan føre til uklare mål eller scope creep hvis ikke godt styrt.</ol>
+        <ol><strong>Krevende for team:  </strong> Hyppig kommunikasjon og iterasjoner krever høy grad av engasjement og disiplin.</ol>
+        <ol><strong>Dokumentasjonsutfordringer:  </strong> Mindre fokus på detaljert dokumentasjon kan skape problemer ved vedlikehold eller teamendringer. </ol>
+        <ol><strong>Avhengighet av kunde:  </strong>Krever aktiv kundeinvolvering, som kan være vanskelig å sikre.</ol>
+        <ol><strong>Skaleringsproblemer:  </strong>Agile metoder kan være utfordrende å implementere i svært store eller distribuerte team.</ol>
 
-
-
-
+        <h2>Oppsummering</h2>
+        <p>Agile metoder er dermed effektive for prosjekter som krever fleksibilitet og rask respons, men krever god ledelse og klare rammer for å unngå fallgruver.</
     </div>
+
+    <script>
+
+        // Make dark mode the default on page load
+        (function enableDefaultDarkMode() {
+            document.body.classList.add('dark-mode');
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+            if (sidebar) sidebar.classList.add('dark-mode');
+            if (content) content.classList.add('dark-mode');
+        })();
+
+
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+            sidebar.classList.toggle('hidden');
+            content.classList.toggle('hidden-sidebar');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.sidebar').classList.toggle('dark-mode');
+            document.querySelector('.content').classList.toggle('dark-mode');
+        }
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            const sidebar = document.querySelector('.sidebar');
+            const toggleBtn = document.querySelector('.toggle-sidebar-btn');
+            if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && !sidebar.classList.contains('hidden')) {
+                toggleSidebar();
+            }
+        });
+    </script>
 </body>
 </html>
-
