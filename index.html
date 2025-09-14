@@ -154,9 +154,13 @@
         /* Main content area styles */
         .content {
             margin-left: 300px;
-            padding: 40px;
             flex-grow: 1;
             min-height: 100vh;
+            display: flex; /* Use flexbox for centering */
+            flex-direction: column; /* Stack items vertically */
+            /* justify-content: center; Center vertically */
+            align-items: center; /* Center horizontally */
+            padding: 40px;
             animation: slideIn 0.5s ease-in-out;
             transition: margin-left 1s ease-in-out;
         }
@@ -173,6 +177,7 @@
             margin-bottom: 1.5rem;
             color: #1F2937;
             letter-spacing: -0.025em;
+            text-align: center;
         }
 
         .content.dark-mode h1 {
@@ -185,6 +190,7 @@
             color: #4B5563;
             max-width: 800px;
             margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         .content.dark-mode p {
@@ -247,7 +253,7 @@
         <!-- Button to toggle sidebar visibility -->
         <button class="toggle-sidebar-btn" onclick="toggleSidebar()">☰</button>
         <!-- Header for sidebar -->
-        <div class="sidebar-header">Navigation</div>
+        <div class="sidebar-header">Navigasjon</div>
         <!-- Navigation links as buttons -->
         <button onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Home</button>
         <button onclick="window.location.href='team.html'"><i class="fas fa-users"></i> Team</button>
@@ -255,7 +261,7 @@
         <button onclick="window.location.href='personas.html'"><i class="fas fa-user-friends"></i> Personas</button>
         <button onclick="window.location.href='iw.html'"><i class="fas fa-sitemap"></i> IA og wireframes</button>
         <button onclick="window.location.href='bbd.html'"><i class="fas fa-check-circle"></i> Brukertesting og brukervennlig design</button>
-        <button onclick="window.location.href='universellutforming.html'"><i class="fab fa-accessible-icon"></i> Universell utforming</button>
+        <button onclick="window.location.href='universellutforming.html'"><i class="fas fa-accessible-icon"></i> Universell utforming</button>
         <button onclick="window.location.href='brukerhistorier.html'"><i class="fas fa-book"></i> Brukerhistorier</button>
         <button onclick="window.location.href='systemutviklingmetoder.html'"><i class="fas fa-cogs"></i> Systemutvikling-metoder</button>
         <button onclick="window.location.href='agilemetoder.html'"><i class="fas fa-sync"></i> Agile Metoder</button>
