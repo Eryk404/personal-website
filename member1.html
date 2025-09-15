@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>About Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Global body styles for layout, typography, and theme transitions */
@@ -153,7 +153,7 @@
 
         /* Main content area styles */
         .content {
-            margin-left: 200px;
+            margin-left: 300px;
             padding: 40px;
             flex-grow: 1;
             min-height: 100vh;
@@ -163,7 +163,7 @@
 
         /* Content adjustment when sidebar is hidden */
         .content.hidden-sidebar {
-            margin-left: 0;
+            margin-left: 80px;
         }
 
         /* Content headings */
@@ -173,6 +173,7 @@
             margin-bottom: 1.5rem;
             color: #1F2937;
             letter-spacing: -0.025em;
+            text-align: center;
         }
 
         .content.dark-mode h1 {
@@ -199,34 +200,44 @@
 
         /* Container for info boxes */
         .info-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1300px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         /* Individual info box styles */
         .info-box {
             background: #FFFFFF;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .info-box:hover {
+            /* transform: translateY(-5px); this makes the boxes go up and the other option makes them bigger */
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         /* Dark mode for info boxes */
         body.dark-mode .info-box {
             background: #374151;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .info-box:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         /* Info box headings */
         .info-box h2 {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             color: #1F2937;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         body.dark-mode .info-box h2 {
@@ -235,7 +246,7 @@
 
         /* Info box paragraphs and lists */
         .info-box p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #4B5563;
         }
 
@@ -245,21 +256,23 @@
 
         .info-box ul {
             list-style-type: disc;
-            padding-left: 20px;
-            margin: 10px 0;
+            padding-left: 25px;
+            margin: 15px 0;
         }
 
         .info-box ul li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
         /* Container for image and contact information */
         .image-contact-container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 30px;
+            margin-bottom: 50px;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
@@ -267,12 +280,16 @@
 
         /* Profile picture styles */
         .profile-pic {
-            width: 300px;
-            height: 300px;
+            width: 350px;
+            height: 350px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #3B82F6;
-            transition: border-color 0.3s ease;
+            border: 4px solid #3B82F6;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.15);
         }
 
         body.dark-mode .profile-pic {
@@ -281,14 +298,15 @@
 
         /* Contact information styles */
         .contact-info {
-            max-width: 400px;
+            max-width: 500px;
+            text-align: center;
         }
 
         .contact-info h2 {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             color: #1F2937;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         body.dark-mode .contact-info h2 {
@@ -296,7 +314,7 @@
         }
 
         .contact-info p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #4B5563;
         }
 
@@ -305,23 +323,44 @@
         }
 
         .contact-info ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin: 10px 0;
+            list-style-type: none;
+            padding-left: 0;
+            margin: 15px 0;
         }
 
         .contact-info ul li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
         /* Media queries for responsiveness */
+        @media (max-width: 1024px) {
+            .info-container {
+                gap: 25px;
+            }
+
+            .info-box {
+                padding: 25px;
+            }
+
+            .profile-pic {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
         @media (max-width: 768px) {
             .sidebar {
                 width: 260px;
             }
 
             .content {
+                margin-left: 260px;
                 padding: 24px;
+            }
+
+            .content.hidden-sidebar {
+                margin-left: 40px;
             }
 
             .sidebar button {
@@ -330,36 +369,40 @@
             }
 
             .info-container {
-                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .image-contact-container {
-                flex-direction: column;
                 gap: 20px;
             }
 
             .profile-pic {
-                width: 300px;
-                height: 300px;
+                width: 250px;
+                height: 250px;
             }
 
             .contact-info {
-                text-align: center;
-            }
-
-            .contact-info ul {
-                padding-left: 0;
-                list-style-position: inside;
+                max-width: 100%;
             }
         }
 
         @media (max-width: 480px) {
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .content.hidden-sidebar {
+                margin-left: 0;
+            }
+
             .content h1 {
-                font-size: 2rem;
+                font-size: 2.25rem;
+                text-align: center;
             }
 
             .content p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .sidebar {
@@ -373,38 +416,28 @@
             }
 
             .info-box {
-                padding: 15px;
+                padding: 20px;
             }
 
             .info-box h2 {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
-            .info-box p {
-                font-size: 1rem;
+            .info-box p, .info-box ul li {
+                font-size: 1.1rem;
             }
 
             .profile-pic {
-                width: 300px;
-                height: 300px;
+                width: 200px;
+                height: 200px;
             }
 
             .contact-info h2 {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
-            .contact-info p {
-                font-size: 1rem;
-            }
-
-            .about-me-box {
-                order: 1; /* Moves the "About Me" box to the end of the grid */
-            }
-        }
-
-        @media (max-width: 768px) {
-            .about-me-box {
-                order: 0; /* Resets to default order on smaller screens */
+            .contact-info p, .contact-info ul li {
+                font-size: 1.1rem;
             }
         }
 
@@ -422,7 +455,7 @@
         <!-- Button to toggle sidebar visibility -->
         <button class="toggle-sidebar-btn" onclick="toggleSidebar()">☰</button>
         <!-- Header for sidebar -->
-        <div class="sidebar-header">Navigation</div>
+        <div class="sidebar-header">Navigasjon</div>
         <!-- Navigation links as buttons -->
         <button onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Home</button>
         <button onclick="window.location.href='team.html'"><i class="fas fa-users"></i> Team</button>
@@ -439,40 +472,41 @@
     </div>
     <!-- Main content section -->
     <div class="content">
-        <h1>About Me</h1>
+        <h1>Om Meg</h1>
         <div class="image-contact-container">
             <img src="teampictures/teammember1.png" alt="Profile Picture" class="profile-pic">
             <div class="contact-info">
-                <h2>Contact Information</h2>
-                <p>Feel free to reach out to me! You can contact me via:
+                <h2>Kontakt informasjon</h2>
+                <p>Ta gjerne kontakt med meg! Du kan kontakte meg via:
                     <ul>
-                        <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
+                        <li>E-post: <a href="mailto:ergor6000@usn.no">ergor6000@usn.no</a></li>
+                        <li>GitHub: <a href="https://github.com/Eryk404">Eryk404</a></li>
                     </ul>
                 </p>
             </div>
         </div>
         <div class="info-container">
             <!-- About Me -->
-            <div class="info-box">
-                <h2>About Me</h2>
-                <p>Hi, I'm [Your Name]! I'm passionate about [your interests, e.g., technology, design, etc.]. I enjoy working on creative projects and learning new skills. In my free time, I love exploring new places and spending time with friends and family.</p>
+            <div class="info-box about-me-box">
+                <h2>Om meg</h2>
+                <p>Hei, jeg heter Eryk! Jeg er lidenskapelig opptatt av IT, datamaskiner og programmering. Jeg liker å jobbe med kreative prosjekter og lære nye ferdigheter. På fritiden elsker jeg å utforske nye steder og tilbringe tid med venner og familie.</p>
             </div>
             <!-- Favorite Activities -->
             <div class="info-box">
-                <h2>Favorite Activities</h2>
-                <p>I love a variety of activities that keep me engaged and inspired, including:
+                <h2>Favorittaktiviteter</h2>
+                <p>Jeg elsker en rekke aktiviteter som holder meg engasjert og inspirert, blant annet:
                     <ul>
-                        <li>Hiking in nature</li>
-                        <li>Reading science fiction novels</li>
-                        <li>Playing video games</li>
-                        <li>Cooking new recipes</li>
+                        <li>Turer</li>
+                        <li>Programmering</li>
+                        <li>Spille videospill</li>
+                        <li>Lære nye ting</li>
                     </ul>
                 </p>
             </div>
             <!-- Pet Animal -->
             <div class="info-box">
-                <h2>My Pet Animal</h2>
-                <p>I have a wonderful pet named [Pet Name], a [type of animal, e.g., Golden Retriever]. [Pet Name] loves to [pet's favorite activity, e.g., chase balls, cuddle, or explore the backyard]. They bring so much joy to my life!</p>
+                <h2>Mine kjæledyr</h2>
+                <p>Jeg har to fantastiske kjæledyr som heter Sam og Mia, begge er golden retrievere. De elsker å være med meg på turer. De gir meg så mye glede i livet!</p>
             </div>
         </div>
     </div>
