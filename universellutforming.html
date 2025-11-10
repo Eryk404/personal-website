@@ -263,11 +263,41 @@
         <button class="dark-mode-toggle" onclick="toggleDarkMode()"><i class="fa-solid fa-circle-half-stroke"></i> White/Dark Mode</button>
     </div>
     <!-- Main content section; add new content here as needed -->
+    
     <div class="content">
-
-
+        <h1>Universell Utforming</h1>
+        <p>Vi har vurdert vårt eget nettsted ut fra WCAG-kriteriene, ved å bruke WAVE-validatoren, og gjennomført en kvalitativ vurdering basert på de fire prinsippene for universell utforming.</p>
+        <h2>Valgt Nettsted og Validator</h2>
+        <p>Nettsted: usn.no. Vi brukte WAVE-verktøyet (Web Accessibility Evaluation Tool) for å validere. Resultater: 2 feil, 0 kontrastfeil, 13 varsler, 24 funksjoner, 48 strukturelle elementer, og 130 ARIA-elementer. AIM-score: 9.1 av 10.</p>
+        <h3>Feil (Errors)</h3>
+        <ul style="text-align: left; max-width: 800px;">
+            <li>Empty heading (tom overskrift)</li>
+            <li>Broken ARIA menu (ødelagt ARIA-meny)</li>
+        </ul>
+        <h3>Varsler (Alerts)</h3>
+        <ul style="text-align: left; max-width: 800px;">
+            <li>3x Long alternative text (lang alternativ tekst)</li>
+            <li>1x Image with title (bilde med tittel)</li>
+            <li>3x Missing first level heading (mangler første nivå overskrift)</li>
+            <li>4x Redundant link (overflødig lenke)</li>
+            <li>3x Redundant title text (overflødig titteltekst)</li>
+        </ul>
+        <h3>Funksjoner (Features)</h3>
+        <p>24 funksjoner, inkludert 17x Alternative text, 2x Null or empty alternative text, 3x Linked image with alternative text, og 2x Language.</p>
+        <h3>Strukturelle Elementer (Structural Elements)</h3>
+        <p>48 strukturelle elementer, inkludert 11x Heading, 27x Heading level 3, 1x Unordered list, 1x Navigation, 1x Search, 1x Main content, og 1x Footer.</p>
+        <h3>ARIA</h3>
+        <p>130 ARIA-elementer, inkludert 38x ARIA, 32x ARIA label, 3x ARIA menu, og 3x ARIA button.</p>
+        <h2>Kvalitativ Vurdering Basert på WCAG-Prinsipper</h2>
+        <ul style="text-align: left; max-width: 800px;">
+            <li><strong>Perceivable (Oppfattelig)</strong>: Alternativ tekst er generelt godt implementert, men noen er for lange, og det er bilder med tittel som kan forvirre. Manglende h1-overskrifter gjør det vanskeligere å forstå sidestrukturen for skjermlesere. Ingen kontrastfeil er positivt for synshemmede.</li>
+            <li><strong>Operable (Betjenelig)</strong>: Ødelagt ARIA-meny kan hindre tastaturnavigasjon og skjermleser-bruk. Overflødige lenker kan gjøre navigasjonen mindre effektiv, men nettstedet er ellers responsivt og tastaturnavigerbart.</li>
+            <li><strong>Understandable (Forståelig)</strong>: Overflødig titteltekst og lenker kan skape forvirring. Tomme overskrifter og manglende h1 bidrar til uklart hierarki. Språket er konsistent, men ARIA-elementene hjelper til med å gjøre interaktive deler mer forståelige.</li>
+            <li><strong>Robust (Robust)</strong>: Mange ARIA-elementer indikerer god støtte for assistive teknologier, men den ødelagte menyen viser at ikke alt fungerer perfekt på tvers av enheter og browsere.</li>
+        </ul>
+        <h2>Utfordringer ved Vurdering</h2>
+        <p>Når funksjonsfriske vurderer universell utforming, møter vi utfordringer som manglende personlig erfaring – vi kan ikke fullt ut forstå hvordan en blind person opplever screenreaders eller en med motoriske vansker bruker tastatur. Vi er avhengige av verktøy som WAVE, men disse fanger ikke alltid subjektive problemer som kognitiv belastning. Bias mot "normale" brukere kan overse "edge cases", og testing krever empati og inkludering av diverse testpersoner for å unngå antakelser.</p>
         
-    </div>
     <script>
         // Enable dark mode by default when the page loads
         (function enableDefaultDarkMode() {
